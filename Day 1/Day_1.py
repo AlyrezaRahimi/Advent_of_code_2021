@@ -16,4 +16,4 @@ for i in range(1,len(input_data)):
     else:
         input_data_num = int(input_data[i])
 
-print("number of change's",counter_change)
+print("number of change",counter_change)
