@@ -1,12 +1,6 @@
-A = ["hello 1", "bye 2"]
+input_data = []
 
-c = 0
-
-for i in range(0,2):
-    b = A[i]
-    if b[0] == "h":
-        c = c + int(b[6])
-    elif b[0] == "b":
-        c = c + int(b[4])
+with open("F:\Work Base\Python\Advent_of_code_2021\Day 2\input.txt") as Data_2:
+    for i in Data_2:
+        input_data.append(i.strip())
         
-print(c)
