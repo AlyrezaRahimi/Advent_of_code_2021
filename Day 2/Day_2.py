@@ -6,6 +6,7 @@ with open("F:\Work Base\Python\Advent_of_code_2021\Day 2\input.txt") as Data_2:
         
 H = 0
 W = 0
+
 #forward X
 #up X
 #down X  
@@ -20,4 +21,4 @@ for i in range(0,len(input_data)):
         W = W + int(word[5])
         
 
-print("position X:",H,"---","position Y:",W)
+print("position X:",H,"--->","position Y:",W,"--->","X*Y:",H*W)
