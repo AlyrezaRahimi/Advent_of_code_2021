@@ -4,7 +4,7 @@ bin_input = []
 with open("X") as Data3:
     for i in Data3:
         bin_input.append(i.strip())
-#path of input's data
+#X is path of input's data
         
 epsilon = ""
 gamma = ""
