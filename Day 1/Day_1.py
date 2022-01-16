@@ -1,10 +1,12 @@
 
 input_data = []
 
-with open("F:\Work Base\Python\Advent_of_code_2021\Day 1\Data.txt") as Data:
+with open("X") as Data:
     for i in Data:
         input_data.append(i)
-        
+  
+#X is path of the input's data
+
 counter_change = 0
 input_data_num = int(input_data[0])
 
@@ -16,8 +18,5 @@ for i in range(1,len(input_data)):
     else:
         input_data_num = int(input_data[i])
 
-<<<<<<< HEAD
 print("number of change's",counter_change)
-=======
-print("number of change's",counter_change)
->>>>>>> 9695943921548947414d8a70a6935e68d81c78c5
+
