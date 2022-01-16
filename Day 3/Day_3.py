@@ -1,10 +1,11 @@
 
 bin_input = []
 
-with open("F:\Work Base\Python\Advent_of_code_2021\Day 3\Binary input's.txt") as Data3:
+with open("X") as Data3:
     for i in Data3:
         bin_input.append(i.strip())
-      
+#path of input's data
+        
 epsilon = ""
 gamma = ""
 Bin_data = 0
