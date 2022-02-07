@@ -33,3 +33,43 @@ for i in range(0,len(test)):
         number_of_matrix += 1
 
 print("number's of matrix is: ",number_of_matrix)
+
+#fix number's of matrix
+def fix_matrix(cr_line):
+    main_matrix_num = test[cr_line]
+    matrix_num = ""
+    final_matrix_num = []
+    i = 0
+
+    while i < len(main_matrix_num):
+        if main_matrix_num[i] == " ":
+            pass
+        else:
+            while main_matrix_num[i] != " ":
+                matrix_num = matrix_num + main_matrix_num[i]
+                i += 1
+                if i == len(main_matrix_num):
+                    break
+            final_matrix_num.append(matrix_num)
+            matrix_num = ""
+        i += 1
+            
+    #print(final_matrix_num)
+    return final_matrix_num
+
+i = 1
+start_matrix = 2
+end_matrix = 7
+main_matrix = {}
+
+while i <= number_of_matrix:
+    key = "matrix" + str(i)
+    main_matrix.setdefault(key, [])
+    for j in range(start_matrix,end_matrix):
+       main_matrix[key].append(fix_matrix(j))
+       
+    start_matrix += 6
+    end_matrix += 6
+    i += 1   
+
+print(main_matrix)
