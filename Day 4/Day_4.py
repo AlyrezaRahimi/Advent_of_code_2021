@@ -1,6 +1,6 @@
 
 test = []
-with open("F:\Work Base\Python\Advent_of_code_2021\Day 4\Test.txt") as Data:
+with open("F:\Work Base\Python\Advent_of_code_2021\Day 4\Matrix_input's.txt") as Data:
     for i in Data:
         test.append(i.strip())
         
