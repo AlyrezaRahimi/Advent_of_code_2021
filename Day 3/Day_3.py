@@ -1,9 +1,14 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> ad673babc45225105887c85d5cd1e302ed03560c
 bin_input = []
 
-with open("F:\Work Base\Python\Advent_of_code_2021\Day 3\Binary input's.txt") as Data3:
+with open("X") as Data3:
     for i in Data3:
         bin_input.append(i.strip())
-      
+#X is path of input's data
+        
 epsilon = ""
 gamma = ""
 Bin_data = 0
@@ -38,5 +43,9 @@ while num < len(bin_input[0]):
     num += 1
     
 print("gamma is: ",gamma,"\n","epsilon is: ",epsilon)
+<<<<<<< HEAD
 
 print("Multiplication of gamma and epsilon is: ",int(gamma, 2) * int(epsilon, 2))
+=======
+print("Multiplication of gamma and epsilon is: ",int(gamma, 2) * int(epsilon, 2))
+>>>>>>> ad673babc45225105887c85d5cd1e302ed03560c
