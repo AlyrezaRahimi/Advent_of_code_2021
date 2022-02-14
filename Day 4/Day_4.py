@@ -101,8 +101,20 @@ def row_comparison(cr_matrix):
         row_counter += 1
         
     
-#def column_comparison():
-    #return True
+def column_comparison(cr_matrix):
+    for num in range(0,5):
+        column_counter = 0
+        column_comparison = 0
+        while column_counter < len(cr_matrix):
+            cr_column = cr_matrix[column_counter]
+            if cr_column[num] == "X":
+                column_comparison += 1
+            column_counter += 1
+        if column_comparison == 5:
+            return True
+        
+        
+                
     
 
 for i in range(0,len(final_num)):
@@ -123,7 +135,7 @@ for i in range(0,len(final_num)):
     for num in range(1,number_of_matrix + 1):
         key = "matrix" + str(num)
         cr_matrix = main_matrix[key]
-        if row_comparison(cr_matrix) == True:
+        if row_comparison(cr_matrix) or column_comparison(cr_matrix) == True:
              breakp = True
              print("the winner is: ",key," ",cr_matrix)  
              print("last number win is: ",curent_number)
