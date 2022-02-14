@@ -143,7 +143,17 @@ for i in range(0,len(final_num)):
     
     if breakp == True:
         break
-        
-    
-
+  
+sum_aray = 0  
+sum_matrix = main_matrix[key]
+for c in range(0,len(sum_matrix)):
+    cr_row = sum_matrix[c]
+    for a in range(0,len(cr_row)):
+        if cr_row[a] != "X":
+            sum_aray = sum_aray + int(cr_row[a])
             
+print("sum of other array's is: ",sum_aray)
+
+final_score = int(curent_number) * sum_aray
+
+print("the final score of winner is: ",final_score)
