@@ -65,6 +65,7 @@ main_matrix = {}
 while i <= number_of_matrix:
     key = "matrix" + str(i)
     main_matrix.setdefault(key, [])
+    
     for j in range(start_matrix,end_matrix):
        main_matrix[key].append(fix_matrix(j))
        
@@ -73,3 +74,30 @@ while i <= number_of_matrix:
     i += 1   
 
 print(main_matrix)
+
+#comparison of matrix number with main num's
+
+def curent_matrix(num):
+    key = "matrix" + str(num)
+    cr_matrix = main_matrix[key]
+    return cr_matrix
+    
+def comparison(cr_row):
+    for aray in range(0,5):
+         if cr_row[aray] == curent_number:
+                cr_row[aray] = "X"
+
+for i in range(0,len(final_num)):
+    curent_number = final_num[i]
+    
+    for i in range(1,number_of_matrix + 1):
+        cr_matrix = curent_matrix(i)
+        row_counter = 0
+        
+        while row_counter < len(cr_matrix):
+            cr_row = cr_matrix[row_counter]
+            comparison(cr_row)
+            row_counter += 1
+            
+print(main_matrix)
+            
