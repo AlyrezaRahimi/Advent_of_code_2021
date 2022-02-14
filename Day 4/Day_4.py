@@ -87,7 +87,26 @@ def comparison(cr_row):
          if cr_row[aray] == curent_number:
                 cr_row[aray] = "X"
 
+def row_comparison(cr_matrix):
+    row_counter = 0
+   
+    while row_counter < len(cr_matrix):
+        cr_row = cr_matrix[row_counter]
+        row_comparison = 0
+        for num in range(0,5):
+            if cr_row[num] == "X":
+                row_comparison += 1
+        if row_comparison == 5:
+            return True  
+        row_counter += 1
+        
+    
+#def column_comparison():
+    #return True
+    
+
 for i in range(0,len(final_num)):
+    breakp = False
     curent_number = final_num[i]
     
     for i in range(1,number_of_matrix + 1):
@@ -98,6 +117,21 @@ for i in range(0,len(final_num)):
             cr_row = cr_matrix[row_counter]
             comparison(cr_row)
             row_counter += 1
-            
-print(main_matrix)
+    
+    #find winner matrix
+    
+    for num in range(1,number_of_matrix + 1):
+        key = "matrix" + str(num)
+        cr_matrix = main_matrix[key]
+        if row_comparison(cr_matrix) == True:
+             breakp = True
+             print("the winner is: ",key," ",cr_matrix)  
+             print("last number win is: ",curent_number)
+             break
+    
+    if breakp == True:
+        break
+        
+    
+
             
