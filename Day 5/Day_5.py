@@ -7,26 +7,29 @@ with open ("F:\Work Base\Python\Advent_of_code_2021\Day 5\line_x,y.txt", "r") as
     for point in Lines:
         points_of_lines.append(point.strip())
 
-Lines = {}
 
-for point in points_of_lines:
+#remove '->' and ','
+flag = 0
+first_in_the_list = 0
+while flag < len(points_of_lines):
     
-    start_of_line = ""
-    end_of_line = ""
+    point = points_of_lines[first_in_the_list]
     group_of_points = ""
     
     for counter in point:
-        
+            
         if counter == " ":
             pass
         elif counter == "-":
-            start_of_line = group_of_points
-            group_of_points = ""
-        elif counter == ">":
             pass
+        elif counter == ">":
+            group_of_points += ","
         else:
             group_of_points += counter
-    end_of_line = group_of_points
-    Lines[start_of_line] = end_of_line
-    group_of_points = ""
+            
+        
+    points_of_lines.remove(points_of_lines[first_in_the_list])
+    points_of_lines.append(group_of_points)
+    flag += 1
     
+print(points_of_lines)
