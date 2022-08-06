@@ -79,11 +79,11 @@ def Calculation_of_intersection_inside_points_vertical():
     inside_vertical_difference_line1 = abs(int(line_y2) - int(line_y1)) 
     inside_vertical_difference_line2 = abs(int(Ch_line_y2) - int(Ch_line_y1))
     if inside_vertical_difference_line1 > inside_vertical_difference_line2: 
-        for sum in range(int(Ch_line_y1),int(Ch_line_y2) + 1):
+        for sum in range(0,inside_vertical_difference_line2 + 1):
             number_of_intersection += 1
         return number_of_intersection
     else:
-        for sum in range(int(line_y1),int(line_y2) + 1):
+        for sum in range(0,inside_vertical_difference_line1 + 1):
             number_of_intersection += 1
         return number_of_intersection
 
@@ -91,12 +91,14 @@ def Calculation_of_intersection_outside_points_vertical():
     global number_of_intersection
     number_of_intersection = 0
     if int(Ch_line_y1) < int(line_y1):
-        outside_vertical_difference_line1 = int(Ch_line_y2) - int(line_y1)
-        number_of_intersection = outside_vertical_difference_line1
+        outside_vertical_difference_line1 = abs(int(Ch_line_y2) - int(line_y1))
+        for sum in range(0,outside_vertical_difference_line1 + 1):
+            number_of_intersection += 1
         return number_of_intersection
     elif int(Ch_line_y2) > int(line_y2):
-        outside_vertical_difference_line2 = int(line_y2) - int(Ch_line_y1)
-        number_of_intersection = outside_vertical_difference_line2
+        outside_vertical_difference_line2 = abs(int(line_y2) - int(Ch_line_y1))
+        for sum in range(0,outside_vertical_difference_line2 + 1):
+            number_of_intersection += 1
         return number_of_intersection
     elif int(Ch_line_y1) == int(line_y2) or int(Ch_line_y2) == int(line_y1):
         number_of_intersection += 1
@@ -105,14 +107,14 @@ def Calculation_of_intersection_outside_points_vertical():
 def Calculation_of_intersection_inside_points_horizental():
     global number_of_intersection
     number_of_intersection = 0
-    inside_horizental_difference_line1 = int(line_x2) - int(line_x1)
-    inside_horizental_difference_line2 = int(Ch_line_x2) - int(Ch_line_x1)
+    inside_horizental_difference_line1 = abs(int(line_x2) - int(line_x1))
+    inside_horizental_difference_line2 = abs(int(Ch_line_x2) - int(Ch_line_x1))
     if inside_horizental_difference_line1 > inside_horizental_difference_line2:
-        for sum in range(int(Ch_line_x1),int(Ch_line_x2) + 1):
+        for sum in range(0,inside_horizental_difference_line2 + 1):
             number_of_intersection += 1
         return number_of_intersection
     else:
-        for sum in range(int(line_x1),int(line_x2) + 1):
+        for sum in range(0,inside_horizental_difference_line1 + 1):
             number_of_intersection += 1
         return number_of_intersection
 
@@ -120,12 +122,14 @@ def Calculation_of_intersection_outside_points_horizental():
     global number_of_intersection
     number_of_intersection = 0
     if int(Ch_line_x1) < int(line_x1):
-        outside_horizental_difference_line1 = int(Ch_line_x2) - int(line_x1)
-        number_of_intersection = outside_horizental_difference_line1
+        outside_vertical_difference_line1 = abs(int(Ch_line_x2) - int(line_x1))
+        for sum in range(0,outside_vertical_difference_line1 + 1):
+            number_of_intersection += 1
         return number_of_intersection
     elif int(Ch_line_x2) > int(line_x2):
-        outside_horizental_difference_line2 = int(line_x2) - int(Ch_line_x1)
-        number_of_intersection = outside_horizental_difference_line2
+        outside_vertical_difference_line2 = abs(int(line_x2) - int(Ch_line_x1))
+        for sum in range(0,outside_vertical_difference_line2 + 1):
+            number_of_intersection += 1
         return number_of_intersection
     elif int(Ch_line_x1) == int(line_x2) or int(Ch_line_x2) == int(line_x1):
         number_of_intersection += 1
@@ -144,13 +148,13 @@ def Calculation_of_intersection_one_point_vertical():
 def Calculation_of_intersection_one_point_horizental():
     global number_of_intersection
     number_of_intersection = 0
-    for mainLinePoint in range(int(line_x1),int(line_x2)):
-        for pointX in range(int(Ch_line_x1),int(Ch_line_x2)):
-            for pointY in range(int(Ch_line_y1),int(Ch_line_y2)):
+    for mainLinePoint in range(int(line_x1),int(line_x2) + 1):
+        for pointX in range(int(Ch_line_x1),int(Ch_line_x2) + 1):
+            for pointY in range(int(Ch_line_y1),int(Ch_line_y2) + 1):
                 if mainLinePoint == pointX and int(line_y1) == pointY:
                     number_of_intersection += 1
                     return number_of_intersection
-                
+       
 number_of_intersection_points = 0
 markerOflines = 1
 
@@ -202,14 +206,42 @@ for line in points_of_lines:
         
         if line_x1 == line_x2 and Ch_line_x1 == Ch_line_x2 or line_y1 == line_y2 and Ch_line_y1 == Ch_line_y2:
             if line_x1 == Ch_line_x1 and line_x2 == Ch_line_x2:
-                if int(line_y1) == int(Ch_line_y1) or int(line_y2) == int(Ch_line_y2) or int(line_y2) > int(Ch_line_y2) and int(line_y2) > int(Ch_line_y2) or int(Ch_line_y1) > int(line_y1):
+                if int(line_y1) > int(line_y2):
+                    line_y2 , line_y1 = line_y1 , line_y2
+                if int(line_x1) > int(line_x2):
+                    line_x2 , line_x1 = line_x1 , line_x2
+                if int(Ch_line_x1) > int(Ch_line_x2):
+                    Ch_line_x2 , Ch_line_x1 = Ch_line_x1 , Ch_line_x2
+                if int(Ch_line_y1) > int(Ch_line_y2):
+                    Ch_line_y2 , Ch_line_y1 = Ch_line_y1 , Ch_line_y2
+                if int(line_y1) == int(Ch_line_y1) and int(line_y2) > int(Ch_line_y2):
                     Calculation_of_intersection_inside_points_vertical()
                     number_of_intersection_points += number_of_intersection 
+                elif int(line_y2) == int(Ch_line_y2) and int(Ch_line_y1) > int(line_y1):
+                    Calculation_of_intersection_inside_points_vertical()
+                    number_of_intersection_points += number_of_intersection 
+                elif int(line_y2) > int(Ch_line_y2) and int(Ch_line_y1) > int(line_y1):
+                    Calculation_of_intersection_inside_points_vertical()
+                    number_of_intersection_points += number_of_intersection
                 else:
                     Calculation_of_intersection_outside_points_vertical()
                     number_of_intersection_points += number_of_intersection 
             elif line_y1 == Ch_line_y1 and line_y2 == Ch_line_y2:
-                if int(line_x1) == int(Ch_line_x1) or int(line_x2) == int(Ch_line_x2) or int(line_x2) > int(Ch_line_x2) and int(line_x2) > int(Ch_line_x2) or int(Ch_line_x1) > int(line_x1):
+                if int(line_y1) > int(line_y2):
+                    line_y2 , line_y1 = line_y1 , line_y2
+                if int(line_x1) > int(line_x2):
+                    line_x2 , line_x1 = line_x1 , line_x2
+                if int(Ch_line_x1) > int(Ch_line_x2):
+                    Ch_line_x2 , Ch_line_x1 = Ch_line_x1 , Ch_line_x2
+                if int(Ch_line_y1) > int(Ch_line_y2):
+                    Ch_line_y2 , Ch_line_y1 = Ch_line_y1 , Ch_line_y2
+                if int(line_x1) == int(Ch_line_x1) and int(line_x2) > int(Ch_line_x2):
+                    Calculation_of_intersection_inside_points_horizental()
+                    number_of_intersection_points += number_of_intersection 
+                elif int(line_x2) == int(Ch_line_x2) and int(Ch_line_x1) > int(line_x1):
+                    Calculation_of_intersection_inside_points_horizental()
+                    number_of_intersection_points += number_of_intersection 
+                elif int(line_x2) > int(Ch_line_x2) and int(Ch_line_x1) > int(line_x1):
                     Calculation_of_intersection_inside_points_horizental()
                     number_of_intersection_points += number_of_intersection 
                 else:
@@ -219,9 +251,21 @@ for line in points_of_lines:
                 pass
         elif line_x1 == line_x2 and Ch_line_x1 != Ch_line_x2 or line_y1 == line_y2 and Ch_line_y1 != Ch_line_y2:
             if line_x1 == line_x2:
+                if int(line_y1) > int(line_y2):
+                    line_y2 , line_y1 = line_y1 , line_y2
+                if int(Ch_line_x1) > int(Ch_line_x2):
+                    Ch_line_x2 , Ch_line_x1 = Ch_line_x1 , Ch_line_x2
+                if int(Ch_line_y1) > int(Ch_line_y2):
+                    Ch_line_y2 , Ch_line_y1 = Ch_line_y1 , Ch_line_y2
                 Calculation_of_intersection_one_point_vertical()
                 number_of_intersection_points += number_of_intersection
-            elif line_y1 == line_y1:
+            elif line_y1 == line_y2:
+                if int(line_x1) > int(line_x2):
+                    line_x2 , line_x1 = line_x1 , line_x2
+                if int(Ch_line_x1) > int(Ch_line_x2):
+                    Ch_line_x2 , Ch_line_x1 = Ch_line_x1 , Ch_line_x2
+                if int(Ch_line_y1) > int(Ch_line_y2):
+                    Ch_line_y2 , Ch_line_y1 = Ch_line_y1 , Ch_line_y2
                 Calculation_of_intersection_one_point_horizental()
                 number_of_intersection_points += number_of_intersection
     markerOflines += 1
